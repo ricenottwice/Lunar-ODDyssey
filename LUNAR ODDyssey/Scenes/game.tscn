@@ -1,0 +1,190 @@
+[gd_scene load_steps=27 format=3 uid="uid://clm8pnpc2r88i"]
+
+[ext_resource type="PackedScene" uid="uid://bcehuim0osxo1" path="res://LUNAR ODDyssey/Scenes/ui.tscn" id="1_d13um"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/game.gd" id="1_ffjoy"]
+[ext_resource type="PackedScene" uid="uid://bw88w6lnap4dm" path="res://LUNAR ODDyssey/Scenes/jinsoul.tscn" id="1_ynhll"]
+[ext_resource type="PackedScene" uid="uid://cj3sjfgc610yp" path="res://LUNAR ODDyssey/Scenes/world.tscn" id="2_usl8l"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/bed.gd" id="6_rlolv"]
+[ext_resource type="Texture2D" uid="uid://cefrd8y6314j1" path="res://LUNAR ODDyssey/Assets/Misc/bed.png" id="7_xi2ah"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/jaden.gd" id="8_dtk3y"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Assets/Sprites/lippie.gd" id="9_bu6dq"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/choerry.gd" id="9_lppep"]
+[ext_resource type="Texture2D" uid="uid://cbn5mr2pmx04a" path="res://LUNAR ODDyssey/Assets/Sprites/Mini_Sprites/Loona_Members/char4.png" id="9_nel5i"]
+[ext_resource type="Texture2D" uid="uid://blyb4d004lpnt" path="res://LUNAR ODDyssey/Assets/Sprites/jaden.png" id="9_sc8tq"]
+[ext_resource type="Texture2D" uid="uid://cvult1dfuwqql" path="res://LUNAR ODDyssey/Assets/Sprites/Mini_Sprites/Loona_Members/char6.png" id="10_f4tqp"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/rain_system.gd" id="11_btgla"]
+[ext_resource type="AudioStream" uid="uid://drtb1jb4bvcue" path="res://LUNAR ODDyssey/Assets/Misc/calming-rain-257596.mp3" id="14_sp2pr"]
+[ext_resource type="Texture2D" uid="uid://bvepkfh7ihrtg" path="res://LUNAR ODDyssey/Assets/Misc/pixil-frame-0 (1).png" id="15_31hhj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6qfb"]
+size = Vector2(14, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dac5q"]
+size = Vector2(20, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0n582"]
+radius = 19.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qadv"]
+size = Vector2(9, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6adic"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eal30"]
+size = Vector2(9, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_swud6"]
+radius = 16.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gxb7t"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 1, 1)
+direction = Vector3(0.1, 1, 0)
+spread = 2.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 100, 0)
+collision_mode = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fx417"]
+size = Vector2(806, 403)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ullaf"]
+size = Vector2(205, 204)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnhys"]
+size = Vector2(276, 524)
+
+[node name="Game" type="Node2D"]
+z_index = 1
+script = ExtResource("1_ffjoy")
+
+[node name="UI" parent="." instance=ExtResource("1_d13um")]
+
+[node name="World" parent="." instance=ExtResource("2_usl8l")]
+
+[node name="DayNightTimer" type="Timer" parent="."]
+wait_time = 30.0
+autostart = true
+
+[node name="Bed" type="Area2D" parent="."]
+position = Vector2(1040, 188)
+script = ExtResource("6_rlolv")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+shape = SubResource("RectangleShape2D_g6qfb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bed"]
+texture = ExtResource("7_xi2ah")
+
+[node name="Jinsoul" parent="." instance=ExtResource("1_ynhll")]
+position = Vector2(330, 141)
+
+[node name="Jaden" type="CharacterBody2D" parent="."]
+visible = false
+position = Vector2(535, -800)
+script = ExtResource("8_dtk3y")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Jaden"]
+texture_filter = 1
+scale = Vector2(0.48, 0.209091)
+texture = ExtResource("9_sc8tq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jaden"]
+texture_filter = 1
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dac5q")
+
+[node name="Area2D" type="Area2D" parent="Jaden"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jaden/Area2D"]
+shape = SubResource("CircleShape2D_0n582")
+
+[node name="Choerry" type="CharacterBody2D" parent="."]
+position = Vector2(401, -316)
+script = ExtResource("9_lppep")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Choerry"]
+texture = ExtResource("9_nel5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choerry"]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_7qadv")
+
+[node name="Area2D" type="Area2D" parent="Choerry"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choerry/Area2D"]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_6adic")
+
+[node name="ChoerryMovementTimer" type="Timer" parent="Choerry"]
+
+[node name="Lippie" type="CharacterBody2D" parent="."]
+position = Vector2(660, 0)
+script = ExtResource("9_bu6dq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lippie"]
+position = Vector2(-0.5, 8.5)
+shape = SubResource("RectangleShape2D_eal30")
+
+[node name="Sprite2D" type="Sprite2D" parent="Lippie"]
+texture = ExtResource("10_f4tqp")
+
+[node name="Area2D" type="Area2D" parent="Lippie"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lippie/Area2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_swud6")
+
+[node name="MovementTimer" type="Timer" parent="Lippie"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+bus = &"Music"
+
+[node name="RainSystem" type="Node2D" parent="."]
+script = ExtResource("11_btgla")
+
+[node name="RainSound" type="AudioStreamPlayer" parent="RainSystem"]
+stream = ExtResource("14_sp2pr")
+volume_db = -18.0
+bus = &"SFX"
+parameters/looping = true
+
+[node name="RainParticles" type="GPUParticles2D" parent="RainSystem"]
+skew = -0.0872665
+amount = 1100
+process_material = SubResource("ParticleProcessMaterial_gxb7t")
+texture = ExtResource("15_31hhj")
+visibility_rect = Rect2(-200, -200, 800, 600)
+
+[node name="IndoorArea" type="Area2D" parent="."]
+position = Vector2(-118, 10)
+collision_layer = 16
+collision_mask = 17
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IndoorArea"]
+position = Vector2(821, 135.5)
+shape = SubResource("RectangleShape2D_fx417")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="IndoorArea"]
+position = Vector2(316.5, 124)
+shape = SubResource("RectangleShape2D_ullaf")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="IndoorArea"]
+position = Vector2(659, 586)
+shape = SubResource("RectangleShape2D_pnhys")
+
+[connection signal="sleep_denied" from="Bed" to="." method="_on_bed_sleep_denied"]
+[connection signal="sleep_triggered" from="Bed" to="." method="_on_bed_sleep_triggered"]
+[connection signal="apple_collected" from="Jinsoul" to="UI" method="_on_jinsoul_apple_collected"]
+[connection signal="cherry_collected" from="Jinsoul" to="UI" method="_on_jinsoul_cherry_collected"]
+[connection signal="body_entered" from="IndoorArea" to="RainSystem" method="_on_indoor_area_body_entered"]
+[connection signal="body_exited" from="IndoorArea" to="RainSystem" method="_on_indoor_area_body_exited"]

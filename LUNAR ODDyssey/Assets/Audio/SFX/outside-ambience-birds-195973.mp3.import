@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2xilxst4nr5p"
+path="res://.godot/imported/outside-ambience-birds-195973.mp3-6315fed21e4ce12af11c23528663a3e9.mp3str"
+
+[deps]
+
+source_file="res://LUNAR ODDyssey/Assets/Audio/SFX/outside-ambience-birds-195973.mp3"
+dest_files=["res://.godot/imported/outside-ambience-birds-195973.mp3-6315fed21e4ce12af11c23528663a3e9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

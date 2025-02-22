@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx7nnf20u5bip"
+path="res://.godot/imported/rain-sound-188158.mp3-5dc38ab988b12b993a5ce4b4399bbdaa.mp3str"
+
+[deps]
+
+source_file="res://LUNAR ODDyssey/Assets/Misc/rain-sound-188158.mp3"
+dest_files=["res://.godot/imported/rain-sound-188158.mp3-5dc38ab988b12b993a5ce4b4399bbdaa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

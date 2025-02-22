@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bvp3c6knkufbk"
+path="res://.godot/imported/Jinsoul's head slamming into a table.wav-7c7073c576fe2e732411471958bb1f48.sample"
+
+[deps]
+
+source_file="res://LUNAR ODDyssey/Assets/Audio/SFX/Jinsoul's head slamming into a table.wav"
+dest_files=["res://.godot/imported/Jinsoul's head slamming into a table.wav-7c7073c576fe2e732411471958bb1f48.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

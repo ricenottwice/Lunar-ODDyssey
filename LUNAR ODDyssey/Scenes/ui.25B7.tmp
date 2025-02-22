@@ -1,0 +1,286 @@
+[gd_scene load_steps=22 format=3 uid="uid://bcehuim0osxo1"]
+
+[ext_resource type="FontFile" uid="uid://dxyl07rfdc13f" path="res://LUNAR ODDyssey/Assets/Misc/early_gameboy/Early GameBoy.ttf" id="1_bqkg1"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/ui.gd" id="1_f4d07"]
+[ext_resource type="Texture2D" uid="uid://b53cunftv0u6y" path="res://LUNAR ODDyssey/Assets/Misc/props/cherries.png" id="3_u6b5o"]
+[ext_resource type="Texture2D" uid="uid://cbd24m2pl8hxs" path="res://LUNAR ODDyssey/Assets/Misc/props/apples.png" id="4_mthaf"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scenes/fade_overlay.gd" id="5_y6x4o"]
+[ext_resource type="Script" path="res://LUNAR ODDyssey/Scripts/cutscene_ui.gd" id="6_34wsv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xt8eh"]
+bg_color = Color(0.027451, 0, 0.792157, 0.588235)
+border_width_left = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6r1t"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jcflg"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(8, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_270j4"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc2ln"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrt15"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(0, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5odpd"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(8, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2775"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(16, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8ljx"]
+atlas = ExtResource("4_mthaf")
+region = Rect2(24, 24, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vu8r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6r1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jcflg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_270j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc2ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrt15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5odpd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2775")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8ljx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnqrg"]
+atlas = ExtResource("3_u6b5o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n4dp"]
+atlas = ExtResource("3_u6b5o")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xbx5w"]
+atlas = ExtResource("3_u6b5o")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj1bq"]
+atlas = ExtResource("3_u6b5o")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uwhct"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnqrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n4dp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xbx5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj1bq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_f4d07")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 120.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xt8eh")
+
+[node name="AppleCountLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = -36.5
+offset_right = 244.0
+offset_bottom = -6.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bqkg1")
+theme_override_font_sizes/font_size = 24
+text = "Apples: 0"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Panel/AppleCountLabel"]
+position = Vector2(-14, 10)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1vu8r")
+autoplay = "default"
+frame_progress = 0.630383
+
+[node name="CherryCountLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 38.0
+offset_top = -1.5
+offset_right = 290.0
+offset_bottom = 28.5
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bqkg1")
+theme_override_font_sizes/font_size = 24
+text = "Cherries: 0"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Panel/CherryCountLabel"]
+position = Vector2(-13, 11)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_uwhct")
+autoplay = "default"
+frame_progress = 0.219886
+
+[node name="ClockLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -166.0
+offset_top = 6.0
+offset_right = -14.0
+offset_bottom = 29.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_bqkg1")
+theme_override_font_sizes/font_size = 24
+text = "Day & Night: 9"
+
+[node name="FadeOverlay" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+offset_top = -1.0
+offset_right = -19.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_y6x4o")
+
+[node name="TipLabel" type="Label" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -82.0
+offset_right = 152.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_bqkg1")
+theme_override_font_sizes/font_size = 28
+text = "Stan Loona"
+horizontal_alignment = 1
+vertical_alignment = 1
+max_lines_visible = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TipLabel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.5
+offset_top = -58.0
+offset_right = 227.5
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.0980392)
+
+[node name="CutsceneUI" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("6_34wsv")
+
+[node name="PortraitLeft" type="TextureRect" parent="CutsceneUI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 50.0
+offset_right = 400.0
+offset_bottom = -98.0
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="PortraitRight" type="TextureRect" parent="CutsceneUI"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -397.0
+offset_top = 50.0
+offset_right = 3.0
+offset_bottom = -98.0
+grow_horizontal = 0
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="DialogueBox" type="ColorRect" parent="CutsceneUI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.103744, 0.103744, 0.103744, 1)
+
+[node name="DialogueText" type="Label" parent="CutsceneUI/DialogueBox"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -11.5
+offset_right = 500.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_bqkg1")
+theme_override_font_sizes/font_size = 18
+text = "STAN LOONA"
+autowrap_mode = 2
