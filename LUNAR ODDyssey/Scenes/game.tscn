@@ -70,7 +70,7 @@ wait_time = 30.0
 autostart = true
 
 [node name="Bed" type="Area2D" parent="."]
-position = Vector2(1040, 188)
+position = Vector2(1038, 190)
 script = ExtResource("6_rlolv")
 metadata/_edit_group_ = true
 
