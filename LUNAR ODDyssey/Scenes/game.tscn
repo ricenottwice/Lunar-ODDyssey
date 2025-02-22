@@ -182,6 +182,10 @@ shape = SubResource("RectangleShape2D_ullaf")
 position = Vector2(659, 586)
 shape = SubResource("RectangleShape2D_pnhys")
 
+[node name="Bed2" type="Sprite2D" parent="."]
+position = Vector2(316, 180)
+texture = ExtResource("7_xi2ah")
+
 [connection signal="sleep_denied" from="Bed" to="." method="_on_bed_sleep_denied"]
 [connection signal="sleep_triggered" from="Bed" to="." method="_on_bed_sleep_triggered"]
 [connection signal="apple_collected" from="Jinsoul" to="UI" method="_on_jinsoul_apple_collected"]
